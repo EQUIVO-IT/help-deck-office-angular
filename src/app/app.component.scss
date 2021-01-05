@@ -1,0 +1,49 @@
+:host {
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+//ToolBar Code
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  background-color: #1C6D65;
+}
+
+mat-nav-list {
+  text-align: center;
+  padding: 15px;
+  color: rgba(17, 136, 216, 0.678);
+}
+
+mat-icon {
+  padding: 5px;
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+// button {
+//   margin: 10px;
+// }
+
+//SideNav Styling
+mat-drawer {
+  background-color: rgb(210, 212, 216);
+  width: 290px;
+}
+
+
+mat-sidenav {
+  background-color: rgb(210, 212, 216);
+  width: 290px;
+}
+
+.main-wrapper {
+  height: 90vh;
+  background-color: #dcdcdc;
+}
