@@ -15,7 +15,7 @@ import { AuthService } from 'src/app/shared/services/equivo-api/Auth/auth.servic
   styleUrls: ['./list-open-tickets.component.scss']
 })
 export class ListOpenTicketsComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'surname', 'contactNumber', 'email', 'actions'];
+  displayedColumns: string[] = ['ticketNumber','hospital', 'status', 'received','lastUpdated', 'actions'];
   dataSource: any;
   tickets: Ticket[] = [];
   ticket: Ticket;

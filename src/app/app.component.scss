@@ -1,6 +1,5 @@
 :host {
   box-sizing: border-box;
-  height: 100vh;
 }
 
 //ToolBar Code
@@ -44,6 +43,9 @@ mat-sidenav {
 }
 
 .main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 90vh;
   background-color: #dcdcdc;
 }

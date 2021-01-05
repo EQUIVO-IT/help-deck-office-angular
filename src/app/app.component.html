@@ -19,6 +19,11 @@
             </a>
 
             <a mat-tab-link class="item-link" [routerLink]="['/browse/all']" routerLinkActive #rla1="routerLinkActive"
+            [active]="rla1.isActive">
+            Create New Ticket
+          </a>
+
+            <a mat-tab-link class="item-link" [routerLink]="['/browse/all']" routerLinkActive #rla1="routerLinkActive"
               [active]="rla1.isActive">
               Open Tickets
             </a>

@@ -1,13 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
-html,
-body {
-  height: 100%;
-}
+// html,
+// body {
+//   height: 100%;
+// }
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  background-color: #dcdcdc;
 }
 
 
@@ -29,10 +32,9 @@ mat-sidenav {
 }
 
 .navbar-container {
-  height: 10vh;
+  // height: 10vh;
   width: 100vw;
-  background-color: #ffffff;
-  border-bottom: 0.0625rem solid #e0e0e0;
+  // border-bottom: 0.0625rem solid #e0e0e0;
   color: #5f6368;
   display: flex;
   z-index: 0;
@@ -68,3 +70,6 @@ mat-sidenav {
 }
 
 
+.mat-drawer-container{
+  background-color: #dcdcdc;
+}
