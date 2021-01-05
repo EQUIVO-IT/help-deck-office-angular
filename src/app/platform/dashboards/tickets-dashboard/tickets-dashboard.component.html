@@ -1,1 +1,86 @@
-<p>tickets-dashboard works!</p>
+<mat-sidenav-container>
+  <mat-sidenav #notification position="end" mode="over" class="notifications-sidenav">
+    <!-- <app-notifications></app-notifications> -->
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="light" role="heading" class="navbar-container">
+      <mat-toolbar-row>
+
+        <div class="navbar-item-one">
+          <a [routerLink]="['/browse/all']" class="home-link"> Help Desk</a>
+        </div>
+
+        <div class="navbar-item-two">
+          <nav mat-tab-nav-bar>
+            <a mat-tab-link class="item-link" [routerLink]="['/browse/all']" routerLinkActive #rla1="routerLinkActive"
+              [active]="rla1.isActive">
+              Dashboard
+            </a>
+
+            <a mat-tab-link class="item-link" [routerLink]="['/browse/all']" routerLinkActive #rla1="routerLinkActive"
+              [active]="rla1.isActive">
+              Open Tickets
+            </a>
+
+            <a mat-tab-link class="item-link" [routerLink]="['/browse/my-modules']" routerLinkActive
+              #rla2="routerLinkActive" [active]="rla2.isActive">
+              Closed Tickets
+            </a>
+          </nav>
+        </div>
+
+
+        <span class="navbar-item-remaining-space"></span>
+
+        <div class="navbar-item-three">
+          <ul class="navbar-control-container">
+
+            <li class="navbar-control">
+              <button mat-button (click)="notification.toggle()">
+                <mat-icon [matBadge]="0" matBadgeSize="small" matBadgeColor="warn">
+                  notification_important_outline
+                </mat-icon>
+              </button>
+            </li>
+
+
+            <li class="navbar-control">
+              <button mat-button [matMenuTriggerFor]="profileMenu">
+                <mat-icon>person_outline</mat-icon>
+              </button>
+              <mat-menu #profileMenu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>account_circle</mat-icon>
+                  profile
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item>
+                  <mat-icon>exit_to_app</mat-icon>
+                  Sign out
+                </button>
+              </mat-menu>
+            </li>
+
+          </ul>
+        </div>
+
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div class="main-wrapper">
+
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title> Income Report</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-actions>
+          <button mat-button>VIEW</button>
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
