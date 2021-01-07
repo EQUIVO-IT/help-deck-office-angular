@@ -2,21 +2,29 @@ import { MaterialModule } from './modules/material.module';
 import { NgModule } from "@angular/core";
 import { ProgressSpinnerComponent } from './components/loaders/progress-spinner/progress-spinner.component';
 import { AppOverlayModule } from './components/loaders/overlay/overlay.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-     MaterialModule,
-     AppOverlayModule
+    MaterialModule,
+    AppOverlayModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   declarations: [
-  ProgressSpinnerComponent
-],
+    ProgressSpinnerComponent
+  ],
   entryComponents: [
   ],
   exports: [
     MaterialModule,
     ProgressSpinnerComponent,
-    AppOverlayModule
+    AppOverlayModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }

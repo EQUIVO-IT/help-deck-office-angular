@@ -1,0 +1,151 @@
+<div class="loader-container">
+  <mat-progress-bar *ngIf="showLoadingEndicator" mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="container">
+  <mat-horizontal-stepper #stepper>
+
+    <mat-step [stepControl]="ticketSenderForm" errorMessage="All Sender Details Requiored">
+      <form [formGroup]="ticketSenderForm" class="form">
+        <ng-template matStepLabel>Fill out Sender Details</ng-template>
+
+        <div class="field-container-inline">
+          <mat-form-field class="field-inline">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="FirstName" type="text" required>
+            <mat-error *ngIf="FirstName.touched && FirstName.invalid">
+              <div *ngIf="FirstName.errors.required">First Name is required.</div>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="field-inline">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="LastName" type="text" required>
+            <mat-error *ngIf="LastName.touched && LastName.invalid">
+              <div *ngIf="LastName.errors.required">Last Name is required.</div>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="field-inline">
+            <mat-label>Job Title</mat-label>
+            <input matInput formControlName="JobTitle" type="text" required>
+            <mat-error *ngIf="JobTitle.touched && JobTitle.invalid">
+              <div *ngIf="JobTitle.errors.required">Job Title is required.</div>
+            </mat-error>
+          </mat-form-field>
+
+        </div>
+
+
+        <div class="field-container-inline">
+          <mat-form-field class="field-inline">
+            <mat-label>Hospital Name</mat-label>
+            <input matInput formControlName="HospitalName" type="text" required>
+            <mat-error *ngIf="HospitalName.touched && HospitalName.invalid">
+              <div *ngIf="HospitalName.errors.required">Hospital Name is required.</div>
+            </mat-error>
+          </mat-form-field>
+
+          <!-- <mat-form-field class="field-inline">
+                  <mat-label>Role</mat-label>
+                  <mat-select formControlName="RoleId">
+                      <mat-option *ngFor="let role of roles" [value]="role.roleId">
+                          {{role.name}}
+                      </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="RoleId.touched && RoleId.invalid">
+                      <div *ngIf="RoleId.errors.required">Role is required.</div>
+                  </mat-error>
+              </mat-form-field> -->
+
+          <mat-form-field class="field-inline">
+            <mat-label>Work Telephone Number</mat-label>
+            <input matInput formControlName="WorkTelephoneNumber" type="text" required>
+            <mat-error *ngIf="WorkTelephoneNumber.touched && WorkTelephoneNumber.invalid">
+              <div *ngIf="WorkTelephoneNumber.errors.required">Telephone Number is required.</div>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="field-inline">
+            <mat-label>Work Email Address</mat-label>
+            <input matInput formControlName="EmailAddress" type="text" required>
+            <mat-error *ngIf="EmailAddress.touched && EmailAddress.invalid">
+              <div *ngIf="EmailAddress.errors.required">Email is required.</div>
+              <div *ngIf="EmailAddress.errors.email"> Please provide valid email.</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="ticketDetailsForm" errorMessage="Ticket Details Required">
+      <form [formGroup]="ticketDetailsForm">
+        <ng-template matStepLabel>Fill out ticket details</ng-template>
+
+        <div class="field-container-inline">
+          <mat-form-field class="field-inline">
+            <mat-label>Email Subject Line</mat-label>
+            <input matInput formControlName="EmailSubjectLine" type="text" required>
+            <mat-error *ngIf="EmailSubjectLine.touched && EmailSubjectLine.invalid">
+              <div *ngIf="EmailSubjectLine.errors.required">Subject Line is required.</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="field-container-inline">
+          <mat-form-field class="field-inline">
+            <mat-label>Email Body</mat-label>
+            <textarea  matInput formControlName="EmailBody"  required></textarea>
+            <mat-error *ngIf="EmailBody.touched && EmailBody.invalid">
+              <div *ngIf="EmailBody.errors.required">Email Body is required.</div>
+            </mat-error>
+          </mat-form-field>
+
+        </div>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Create Ticket</button>
+        </div>
+
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>New Support Ticket Created Successfully</p>
+      <div>
+        <button mat-button>Go to ticket</button>
+        <button mat-button>Go back to List</button>
+      </div>
+    </mat-step>
+
+  </mat-horizontal-stepper>
+</div>
+
+
+
+
+<!--
+<mat-toolbar class="form-toolbar">
+  <span class="fill-remaining-space"></span>
+  <div class="dialog-header">
+    <div class="dialog-header-title">Open New Ticket </div>
+    <div class="dialog-header-error-message" *ngIf="errorMessage">{{errorMessage}}</div>
+  </div>
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
+
+<form [formGroup]="ticketForm" class="form" (ngSubmit)="onSubmit()">
+
+
+  <div class="button-row">
+    <button mat-button mat-dialog-close>Cancel </button>
+    <button mat-raised-button type="submit" class="submit-button">Create Ticket</button>
+  </div>
+</form> -->

@@ -7,6 +7,7 @@ import { ListOpenTicketsComponent } from './pages/list-open-tickets/list-open-ti
 import { ListClosedTicketsComponent } from './pages/list-closed-tickets/list-closed-tickets.component';
 import { TicketsDashboardComponent } from './pages/tickets-dashboard/tickets-dashboard.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { OpenNewTicketComponent } from './pages/open-new-ticket/open-new-ticket.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     TicketsComponent,
     TicketsDashboardComponent,
     ListOpenTicketsComponent,
-    ListClosedTicketsComponent],
+    ListClosedTicketsComponent,
+    OpenNewTicketComponent],
   imports: [
     CommonModule,
     TicketsRoutingModule,

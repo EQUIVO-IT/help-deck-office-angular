@@ -1,0 +1,69 @@
+<mat-card class="mat-elevation-z8 top-card-container">
+  <mat-card-header>
+    <mat-card-title>Support Team Members</mat-card-title>
+    <mat-card-subtitle>Showing a list of support team members that can handle to tickets</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+
+<mat-card class="mat-elevation-z8 middle-card-container-with-background">
+  <button mat-button (click)="onAddNewSupportMember()" class="control-button">Add new Support Member</button>
+</mat-card>
+
+
+<mat-card class="mat-elevation-z8 middle-card-container">
+  <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+  </mat-form-field>
+</mat-card>
+
+ <mat-card class="mat-elevation-z8 buttom-card-container">
+
+  <mat-card-content>
+    <mat-table [dataSource]="dataSource" matSort class="table">
+
+      <ng-container matColumnDef="firstName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> First  Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="emaailAddress">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email Address </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+
+
+      <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+
+            <button mat-button (click)="onUpdateSupportMember(element)" matTooltip="Update Details">
+                <mat-icon class="icon-library">create</mat-icon>
+            </button>
+
+            <button mat-button (click)="onDeleteValue(element)" matTooltip="Delete Employee">
+                <mat-icon class="icon-library">delete</mat-icon>
+            </button>
+            <button mat-button (click)="onResendAccountCreatedEmail(element)" matTooltip="Resent account created Email">
+                <mat-icon class="icon-library">email</mat-icon>
+            </button>
+
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-card-content>
+</mat-card>
+
+<app-progress-spinner class="example-margin" color="warn" mode="indeterminate" value="50"  [backdropEnabled]="true"
+ [positionGloballyCenter]="true" [displayProgressSpinner]="displayProgressSpinner">

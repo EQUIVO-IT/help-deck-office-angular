@@ -5,6 +5,9 @@
   </mat-card-header>
 </mat-card>
 
+<mat-card class="mat-elevation-z8 middle-card-container-with-background">
+  <button mat-button (click)="onOpenNewTicket()" class="control-button">Open New Ticket</button>
+</mat-card>
 
 <mat-card class="mat-elevation-z8 middle-card-container">
   <mat-form-field>
@@ -46,9 +49,9 @@
       <ng-container matColumnDef="actions">
           <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
           <mat-cell *matCellDef="let element">
-              <button mat-button (click)="onArchiveClient(element)" matTooltip="archive Client">
+              <!-- <button mat-button matTooltip="archive Client">
                   <mat-icon>archive</mat-icon>
-              </button>
+              </button> -->
           </mat-cell>
       </ng-container>
 

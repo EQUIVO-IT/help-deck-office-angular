@@ -1,3 +1,4 @@
+import { OpenNewTicketComponent } from './../open-new-ticket/open-new-ticket.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -47,21 +48,17 @@ export class ListOpenTicketsComponent implements OnInit {
   }
 
 
-  onArchiveClient(ticket:Ticket) {
-    // this._employeeService
-    //   .toggleClientArchiveStatus(this._authService.currentUser.UserName, ticket.id)
-    //   .subscribe((event: { type: HttpEventType; }) => {
-    //     if (event.type === HttpEventType.Sent) {
-    //       this.displayProgressSpinner = true;
-    //     }
-    //     if (event.type === HttpEventType.Response) {
-    //       this.getOpenTicketsFromServer();
-    //       this.displayProgressSpinner = false;
-    //       this.openSnackBar("Client Archived", "Success", 2000);
+  onOpenNewTicket() {
+      let dialogRef = this._dialog.open(OpenNewTicketComponent, {
+        width: "900px",
+        height: "auto"
+      });
 
-    //     }
-    //   });
-  }
+      dialogRef.afterClosed().subscribe(res => {
+        this.getOpenTicketsFromServer();
+      })
+    }
+
 
   private getOpenTicketsFromServer() {
     // this._employeeService.getActiveClients(this._authService.currentUser.UserName).subscribe(event => {
