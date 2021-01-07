@@ -1,0 +1,121 @@
+// :host {
+//   box-sizing: border-box;
+// }
+
+
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  background-color: #dcdcdc;
+}
+
+
+mat-progress-bar {
+  height: 4.5px;
+}
+
+mat-sidenav {
+  width: 40%;
+}
+
+.notifications-sidenav {
+  width: 40vw;
+}
+
+.home-link {
+  color: #5f6368;
+  text-decoration: none;
+}
+
+.navbar-container {
+  width: 100vw;
+  color: #5f6368;
+  display: flex;
+  z-index: 0;
+}
+
+.navbar-item-one {
+  flex: 1;
+}
+
+.navbar-item-two {
+  flex: 1;
+}
+
+.navbar-item-three {
+  flex: 1;
+}
+
+.item-link {
+  height: 64px;
+}
+
+.navbar-item-remaining-space {
+  flex: 1 1 1;
+}
+
+.navbar-control-container {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-control {
+  list-style: none;
+}
+
+
+.mat-drawer-container{
+  background-color: #dcdcdc;
+}
+
+
+//ToolBar Code
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  background-color: #1C6D65;
+}
+
+mat-nav-list {
+  text-align: center;
+  padding: 15px;
+  color: rgba(17, 136, 216, 0.678);
+}
+
+mat-icon {
+  padding: 5px;
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+// button {
+//   margin: 10px;
+// }
+
+//SideNav Styling
+mat-drawer {
+  background-color: rgb(210, 212, 216);
+  width: 290px;
+}
+
+
+mat-sidenav {
+  background-color: rgb(210, 212, 216);
+  width: 290px;
+}
+
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color: #dcdcdc;
+}

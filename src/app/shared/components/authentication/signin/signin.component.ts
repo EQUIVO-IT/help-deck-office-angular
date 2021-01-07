@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/equivo-api/Auth/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -6,10 +9,57 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
+  loginForm: FormGroup;
 
-  constructor() { }
+  get UserName() {
+    return this.loginForm.get('UserName');
+  }
+  get Password() {
+    return this.loginForm.get('Password');
+  }
+
+  errorMessage = "";
+  showLoadingEndicator = false;
+  constructor(
+    private _authService: AuthService,
+    private _router: Router,
+    private _route: ActivatedRoute,
+    loginFb: FormBuilder
+  ) {
+    this.loginForm = loginFb.group({
+      UserName: ['', Validators.required],
+      Password: ['', Validators.required]
+    })
+  }
+
 
   ngOnInit(): void {
   }
 
+  signIn() {
+    // this.errorMessage = "";
+    // if (this.loginForm.valid) {
+    //   this._authService.signIn(this.loginForm.value)
+    //     .subscribe(event => {
+    //       if (event.type === HttpEventType.Sent) {
+    //         this.showLoadingEndicator = true;
+    //       }
+    //       if (event.type === HttpEventType.Response) {
+    //         this.showLoadingEndicator = false;
+    //         localStorage.setItem('token', event.body['token']);
+    //         let returnUrl = this._route.snapshot.queryParamMap.get('returnUrl');
+    //         this._router.navigate([returnUrl || '/admin/dashboard']);
+    //       }
+    //     },
+    //       error => {
+    //         this.showLoadingEndicator = false;
+    //         this.errorMessage = error.error.message;
+    //       })
+    // }
+
+  }
+
+  forgotPassword() {
+
+  }
 }
