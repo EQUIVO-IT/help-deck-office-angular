@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/shared/services/equivo-api/Auth/auth.servic
 import { SuppertMember } from '../../../data-types/admin-data-types';
 import { HttpEventType } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material/table';
+import { AssignedPasswordDialogComponent } from '../assigned-password-dialog/assigned-password-dialog.component';
 
 @Component({
   selector: 'app-list-support-team-members',
@@ -58,19 +59,19 @@ export class ListSupportTeamMembersComponent implements OnInit {
     })
   }
 
-  onUpdateSupportMember(value) {
-    // let typed = value as Employee;
-    // let dialogRef = this._dialog.open(UpdateDatabaseComponent, {
-    //   width: "900px",
-    //   height: "auto",
-    //   data: {
-    //     updateId: typed.employeeId
-    //   }
+  onViewSignInDetails(value:SuppertMember) {
+    let passwordDialofRef = this._dialog.open(AssignedPasswordDialogComponent, {
+      width: "650px",
+      height: "auto",
+      data: {
+        assignedPassword: value.generatedPassword,
+        emailAddress: value.workEmailAddress
+      }
+    });
+    // passwordDialofRef.afterClosed().subscribe(res => {
+    //   this.closeDialog();
     // });
 
-    // dialogRef.afterClosed().subscribe(res => {
-    //   this.getEmployeesFromServer();
-    // })
   }
 
 
@@ -83,7 +84,6 @@ export class ListSupportTeamMembersComponent implements OnInit {
       if (event.type === HttpEventType.Response) {
         this.displayProgressSpinner = false;
         this.supportMembers = event.body as SuppertMember[];
-        console.log(this.supportMembers);
 
         this.dataSource = new MatTableDataSource<SuppertMember>(this.supportMembers);
         this.dataSource.sort = this.sort;

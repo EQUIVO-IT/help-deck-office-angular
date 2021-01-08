@@ -26,4 +26,18 @@ export class AuthService {
       .post(this.endpointBase.concat("HelpDeskAccount/SignIn"), payload, { reportProgress: true, observe: 'events' });
   }
 
+  signOut() {
+    localStorage.removeItem('token');
+  }
+
+  isSignedIn() {
+    let token = localStorage.getItem('token');
+    if (!token) return false;
+
+    const helper = new JwtHelperService();
+    if (helper.isTokenExpired(token)) return false;
+
+    return true;
+  }
+
 }
