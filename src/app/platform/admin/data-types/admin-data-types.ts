@@ -1,4 +1,4 @@
-export interface SuppertTeamMember{
+export interface SuppertMember{
   id:number;
   emailAddress:string;
   firstName:string;

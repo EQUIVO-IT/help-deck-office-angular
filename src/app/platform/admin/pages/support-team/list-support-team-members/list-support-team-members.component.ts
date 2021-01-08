@@ -1,3 +1,4 @@
+import { AdminService } from './../../../styles/admin.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -6,7 +7,9 @@ import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { Ticket } from 'src/app/platform/tickets/data-types/tickets-data-types';
 import { AuthService } from 'src/app/shared/services/equivo-api/Auth/auth.service';
-import { SuppertTeamMember } from '../../../data-types/admin-data-types';
+import { SuppertMember } from '../../../data-types/admin-data-types';
+import { HttpEventType } from '@angular/common/http';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-list-support-team-members',
@@ -14,10 +17,10 @@ import { SuppertTeamMember } from '../../../data-types/admin-data-types';
   styleUrls: ['./list-support-team-members.component.scss']
 })
 export class ListSupportTeamMembersComponent implements OnInit {
-  displayedColumns: string[] = ['firstName','lastName', 'emaailAddress', 'actions'];
+  displayedColumns: string[] = ['firstName', 'lastName', 'emaailAddress', 'actions'];
   dataSource: any;
-  tickets: SuppertTeamMember[] = [];
-  ticket: SuppertTeamMember;
+  supportMembers: SuppertMember[] = [];
+  supportMember: SuppertMember;
   displayProgressSpinner = false;
 
 
@@ -26,15 +29,15 @@ export class ListSupportTeamMembersComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    // private _ownerService: OwnerService,
-    private _authService: AuthService,
+    private _adminService: AdminService,
+     private _authService: AuthService,
     private _dialog: MatDialog,
     private _snackBar: MatSnackBar
   ) {
   }
 
   ngOnInit(): void {
-    // this.getSupportMembersFromServer();
+    this.getSupportMembersFromServer();
   }
 
   applyFilter(event: Event) {
@@ -42,21 +45,6 @@ export class ListSupportTeamMembersComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  onResendAccountCreatedEmail(employee) {
-    // this._ownerService.resendEmployeeAccountCreatedEmail(this._authService.currentUser.UserName, employee.employeeId)
-    //   .subscribe(event => {
-    //     if (event.type === HttpEventType.Sent) {
-    //       this.displayProgressSpinner = true;
-    //     }
-    //     if (event.type === HttpEventType.Response) {
-    //       this.displayProgressSpinner = false;
-    //       this.openSnackBar("Email Resent", "Success!", 2000);
-    //     }
-    //   },
-    //     error => {
-    //       this.displayProgressSpinner = false;
-    //     });
-  }
 
   onAddNewSupportMember() {
     // let dialogRef = this._dialog.open(AddEmployeeComponent, {
@@ -99,18 +87,18 @@ export class ListSupportTeamMembersComponent implements OnInit {
   }
 
   private getSupportMembersFromServer() {
-    // this._ownerService.getAllEmployees(this._authService.currentUser.UserName).subscribe(event => {
-    //   if (event.type === HttpEventType.Sent) {
-    //     this.displayProgressSpinner = true;
-    //   }
-    //   if (event.type === HttpEventType.Response) {
-    //     this.displayProgressSpinner = false;
-    //     this.employees = event.body as Employee[];
-    //     this.dataSource = new MatTableDataSource<Employee>(this.employees);
-    //     this.dataSource.sort = this.sort;
-    //     this.dataSource.paginator = this.paginator;
-    //   }
-    // });
+    this._adminService.getAllSupportMembers().subscribe(event => {
+      if (event.type === HttpEventType.Sent) {
+        this.displayProgressSpinner = true;
+      }
+      if (event.type === HttpEventType.Response) {
+        this.displayProgressSpinner = false;
+        this.supportMembers = event.body as SuppertMember[];
+        this.dataSource = new MatTableDataSource<SuppertMember>(this.supportMembers);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      }
+    });
   }
 
   private openSnackBar(message: string, action: string, _duration: number) {

@@ -37,8 +37,6 @@
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
   </ng-container>
 
-
-
       <ng-container matColumnDef="actions">
           <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
           <mat-cell *matCellDef="let element">
@@ -47,11 +45,8 @@
                 <mat-icon class="icon-library">create</mat-icon>
             </button>
 
-            <button mat-button (click)="onDeleteValue(element)" matTooltip="Delete Employee">
+            <button mat-button (click)="onDeleteValue(element)" matTooltip="Suspend Support Member">
                 <mat-icon class="icon-library">delete</mat-icon>
-            </button>
-            <button mat-button (click)="onResendAccountCreatedEmail(element)" matTooltip="Resent account created Email">
-                <mat-icon class="icon-library">email</mat-icon>
             </button>
 
         </mat-cell>

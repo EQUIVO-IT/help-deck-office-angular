@@ -1,3 +1,4 @@
+import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -37,25 +38,32 @@ export class SigninComponent implements OnInit {
   }
 
   signIn() {
-    // this.errorMessage = "";
-    // if (this.loginForm.valid) {
-    //   this._authService.signIn(this.loginForm.value)
-    //     .subscribe(event => {
-    //       if (event.type === HttpEventType.Sent) {
-    //         this.showLoadingEndicator = true;
-    //       }
-    //       if (event.type === HttpEventType.Response) {
-    //         this.showLoadingEndicator = false;
-    //         localStorage.setItem('token', event.body['token']);
-    //         let returnUrl = this._route.snapshot.queryParamMap.get('returnUrl');
-    //         this._router.navigate([returnUrl || '/admin/dashboard']);
-    //       }
-    //     },
-    //       error => {
-    //         this.showLoadingEndicator = false;
-    //         this.errorMessage = error.error.message;
-    //       })
-    // }
+    this.errorMessage = "";
+
+    if (this.loginForm.valid) {
+      this._authService.signIn(this.loginForm.value)
+        .subscribe(event => {
+          if (event.type === HttpEventType.Sent) {
+            this.showLoadingEndicator = true;
+          }
+          if (event.type === HttpEventType.Response) {
+            this.showLoadingEndicator = false;
+            localStorage.setItem('token', event.body['token']);
+            let returnUrl = this._route.snapshot.queryParamMap.get('returnUrl');
+
+            if (this._authService.currentUser.UserRole == "admin".toLowerCase()) {
+              this._router.navigate([returnUrl || '/admin/dashboard']);
+            }
+            if (this._authService.currentUser.UserRole == "supportmember".toLowerCase()) {
+              this._router.navigate([returnUrl || '/tickets/dashboard']);
+            }
+          }
+        },
+          error => {
+            this.showLoadingEndicator = false;
+            this.errorMessage = error.error.message;
+          })
+    }
 
   }
 

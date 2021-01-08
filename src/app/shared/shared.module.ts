@@ -10,8 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     AppOverlayModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   ],
   declarations: [
     ProgressSpinnerComponent
@@ -23,8 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProgressSpinnerComponent,
     AppOverlayModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    ReactiveFormsModule
+
   ]
 })
 export class SharedModule { }

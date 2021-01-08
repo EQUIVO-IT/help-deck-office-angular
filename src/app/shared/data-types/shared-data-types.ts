@@ -1,3 +1,9 @@
+
+export interface CurrentUser {
+  UserName: string;
+  UserRole: string;
+}
+
 export interface UploadFinishedEventArgs {
   filePath: '' //Comes from server
 }
