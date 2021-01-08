@@ -5,3 +5,8 @@ export interface SuppertMember{
   lastName:string;
   generatedPassword:string;
 }
+
+export interface Hospital{
+  id:number;
+  name:string;
+}

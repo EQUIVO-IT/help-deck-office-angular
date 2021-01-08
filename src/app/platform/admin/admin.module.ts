@@ -8,10 +8,12 @@ import { AddSupportTeamMemberComponent } from './pages/support-team/add-support-
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { AssignedPasswordDialogComponent } from './pages/support-team/assigned-password-dialog/assigned-password-dialog.component';
+import { ListHospitalsComponent } from './pages/hospitals/list-hospitals/list-hospitals.component';
+import { AddHospitalComponent } from './pages/hospitals/add-hospital/add-hospital.component';
 
 
 @NgModule({
-  declarations: [AdminComponent, ListSupportTeamMembersComponent, AddSupportTeamMemberComponent, AdminDashboardComponent, AssignedPasswordDialogComponent],
+  declarations: [AdminComponent, ListSupportTeamMembersComponent, AddSupportTeamMemberComponent, AdminDashboardComponent, AssignedPasswordDialogComponent, ListHospitalsComponent, AddHospitalComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
