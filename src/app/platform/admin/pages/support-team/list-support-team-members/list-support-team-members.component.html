@@ -24,17 +24,17 @@
 
       <ng-container matColumnDef="firstName">
           <mat-header-cell *matHeaderCellDef mat-sort-header> First  Name </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="lastName">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="emaailAddress">
+    <ng-container matColumnDef="workEmailAddress">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Email Address </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.workEmailAddress}} </mat-cell>
   </ng-container>
 
       <ng-container matColumnDef="actions">
@@ -43,10 +43,6 @@
 
             <button mat-button (click)="onUpdateSupportMember(element)" matTooltip="Update Details">
                 <mat-icon class="icon-library">create</mat-icon>
-            </button>
-
-            <button mat-button (click)="onDeleteValue(element)" matTooltip="Suspend Support Member">
-                <mat-icon class="icon-library">delete</mat-icon>
             </button>
 
         </mat-cell>

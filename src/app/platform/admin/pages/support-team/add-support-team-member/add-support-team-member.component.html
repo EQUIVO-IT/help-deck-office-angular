@@ -1,1 +1,51 @@
-<p>add-support-team-member works!</p>
+<div class="loader-container">
+  <mat-progress-bar *ngIf="showLoadingEndicator" mode="indeterminate"></mat-progress-bar>
+</div>
+<div class="container">
+  <mat-toolbar class="form-toolbar">
+      <span class="fill-remaining-space"></span>
+      <div class="dialog-header">
+          <div class="dialog-header-title">Add New Support Member </div>
+          <div class="dialog-header-error-message" *ngIf="errorMessage">{{errorMessage}}</div>
+      </div>
+      <span class="fill-remaining-space"></span>
+  </mat-toolbar>
+
+  <form [formGroup]="supportMemberForm" class="form" (ngSubmit)="onSubmit()">
+      <div class="field-container-inline">
+          <mat-form-field class="field-inline">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="FirstName" type="text" required>
+              <mat-error *ngIf="FirstName.touched && FirstName.invalid">
+                  <div *ngIf="FirstName.errors.required">First Name is required.</div>
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="field-inline">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="LastName" type="text" required>
+            <mat-error *ngIf="LastName.touched && LastName.invalid">
+                <div *ngIf="LastName.errors.required">Last Name is required.</div>
+            </mat-error>
+        </mat-form-field>
+      </div>
+
+
+      <div class="field-container-inline">
+
+          <mat-form-field class="field-inline">
+              <mat-label>Email Address</mat-label>
+              <input matInput formControlName="EmailAddress" type="text" required>
+              <mat-error *ngIf="EmailAddress.touched && EmailAddress.invalid">
+                  <div *ngIf="EmailAddress.errors.required">Email is required.</div>
+                  <div *ngIf="EmailAddress.errors.email"> Please provide valid email.</div>
+              </mat-error>
+          </mat-form-field>
+      </div>
+
+      <div class="button-row">
+          <button mat-button mat-dialog-close>Cancel </button>
+          <button mat-raised-button type="submit" class="submit-button">Submit</button>
+      </div>
+  </form>
+</div>

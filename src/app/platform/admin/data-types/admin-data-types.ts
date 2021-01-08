@@ -1,6 +1,7 @@
 export interface SuppertMember{
   id:number;
-  emailAddress:string;
+  workEmailAddress:string;
   firstName:string;
-  lastName:string
+  lastName:string;
+  generatedPassword:string;
 }

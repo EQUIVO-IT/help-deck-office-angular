@@ -1,3 +1,4 @@
+import { AddSupportTeamMemberComponent } from './../add-support-team-member/add-support-team-member.component';
 import { AdminService } from './../../../styles/admin.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -17,7 +18,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./list-support-team-members.component.scss']
 })
 export class ListSupportTeamMembersComponent implements OnInit {
-  displayedColumns: string[] = ['firstName', 'lastName', 'emaailAddress', 'actions'];
+  displayedColumns: string[] = ['firstName', 'lastName', 'workEmailAddress', 'actions'];
   dataSource: any;
   supportMembers: SuppertMember[] = [];
   supportMember: SuppertMember;
@@ -47,14 +48,14 @@ export class ListSupportTeamMembersComponent implements OnInit {
 
 
   onAddNewSupportMember() {
-    // let dialogRef = this._dialog.open(AddEmployeeComponent, {
-    //   width: "900px",
-    //   height: "auto"
-    // });
+    let dialogRef = this._dialog.open(AddSupportTeamMemberComponent, {
+      width: "900px",
+      height: "auto"
+    });
 
-    // dialogRef.afterClosed().subscribe(res => {
-    //   this.getEmployeesFromServer();
-    // })
+    dialogRef.afterClosed().subscribe(res => {
+      this.getSupportMembersFromServer();
+    })
   }
 
   onUpdateSupportMember(value) {
@@ -73,18 +74,6 @@ export class ListSupportTeamMembersComponent implements OnInit {
   }
 
 
-  onDeleteValue(value) {
-    // let typed = value as Employee;
-    // this._ownerService.deleteDelete(typed.employeeId).subscribe(event => {
-    //   if (event.type === HttpEventType.Sent) {
-    //     this.displayProgressSpinner = true;
-    //   }
-    //   if (event.type === HttpEventType.Response) {
-    //     this.getEmployeesFromServer();
-    //     this.openSnackBar("Delete Employee", "Success", 2000);
-    //   }
-    // })
-  }
 
   private getSupportMembersFromServer() {
     this._adminService.getAllSupportMembers().subscribe(event => {
@@ -94,6 +83,8 @@ export class ListSupportTeamMembersComponent implements OnInit {
       if (event.type === HttpEventType.Response) {
         this.displayProgressSpinner = false;
         this.supportMembers = event.body as SuppertMember[];
+        console.log(this.supportMembers);
+
         this.dataSource = new MatTableDataSource<SuppertMember>(this.supportMembers);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
