@@ -1,42 +1,7 @@
+@import "/src/globals/styles/colors.scss";
+@import "/src/globals/styles/list-tables.scss";
+
 :host {
   box-sizing: border-box;
   height: 100vh;
-}
-
-.top-card-container {
-  width: 80em;
-  margin-top: 3em;
-}
-
-.middle-card-container {
-  margin: 1em 0;
-}
-
-.middle-card-container-with-background {
-  margin: 1em 0;
-  background-color: #6AB187;
-}
-
-.control-button{
-  color: #ffffff;
-}
-
-.buttom-card-container {
-  width: 80em;
-  margin-bottom: 5em;
-}
-
-.table {
-  width: 100%;
-  height: 12em;
-}
-
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
-
-.table-name {
-  color: rgba(0, 0, 0, 0.87);
-  font-weight: bolder;
 }

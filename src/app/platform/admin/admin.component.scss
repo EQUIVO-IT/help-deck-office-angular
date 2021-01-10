@@ -1,122 +1,91 @@
-// :host {
-//   box-sizing: border-box;
-// }
-
-
+@import "/src/globals/styles/colors.scss";
 
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  overflow-y: hidden; /* Hide vertical scrollbar */
-  overflow-x: hidden; /* Hide horizontal scrollbar */
-  background-color: #dcdcdc;
+  background-color: $body-background-color;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 
-mat-progress-bar {
-  height: 4.5px;
+.navbar-container {
+  display: flex;
+  width: 100vw;
+  background-color: $controlers-primary-forebackground-color;
 }
 
-mat-sidenav {
-  width: 40%;
+.nabvar-sticky {
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
-.notifications-sidenav {
-  width: 40vw;
-}
-
-.home-link {
+.navbar-home-controller {
   color: #ffffff;
   text-decoration: none;
 }
 
-.navbar-container {
-  width: 100vw;
-  color: #5f6368;
-  display: flex;
-  z-index: 0;
-}
 
-.navbar-item-one {
+.navbar-section {
   flex: 1;
 }
 
-.navbar-item-two {
-  flex: 1;
-}
-
-.navbar-item-three {
-  flex: 1;
-}
-
-.item-link {
-  height: 64px;
-}
-
-.navbar-item-remaining-space {
+.navbar-section-divider {
   flex: 1 1 1;
 }
 
-.navbar-control-container {
+.navbar-section-controller {
+  height: 64px;
+  color: #ffffff;
+}
+
+.navbar-section-controller-list-container {
   display: flex;
   justify-content: center;
 }
 
-.navbar-control {
+.navbar-section-controller-list-option {
   list-style: none;
 }
 
-
-.mat-drawer-container{
-  background-color: #dcdcdc;
+.mat-drawer-container {
+  background-color: $body-background-color;
 }
 
-
-//ToolBar Code
-.spacer {
-  flex: 1 1 auto;
-}
-
-mat-toolbar {
-  background-color: #6AB187;
-}
-
-mat-nav-list {
-  text-align: center;
-  padding: 15px;
-  color: rgba(17, 136, 216, 0.678);
-}
-
-mat-icon {
+.navbar-icon {
   padding: 5px;
-  color: white;
+  color: $controlers-primary-forebackground-color;
 }
 
-a {
-  color: white;
-}
-
-// button {
-//   margin: 10px;
-// }
-
-//SideNav Styling
-mat-drawer {
-  background-color: rgb(210, 212, 216);
-  width: 290px;
-}
-
-
-mat-sidenav {
-  background-color: rgb(210, 212, 216);
-  width: 290px;
+.navbar-username-text {
+  color: #ffffff;
 }
 
 .main-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
-  background-color: #dcdcdc;
+  height: 100vh;
+  margin-top: 6em;
+  background-color: $body-background-color;
 }
 
+mat-progress-bar {
+  height: 4.5px;
+}
+
+//SideNav
+mat-sidenav {
+  width: 40%;
+}
+
+mat-drawer {
+  background-color: rgb(210, 212, 216);
+  width: 290px;
+}
+
+mat-sidenav {
+  background-color: rgb(210, 212, 216);
+  width: 290px;
+}

@@ -8,13 +8,15 @@ import { AuthService } from 'src/app/shared/services/equivo-api/Auth/auth.servic
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-
-  constructor(private _router: Router, private _authService: AuthService) { }
-
-  ngOnInit(): void {
+  username = "";
+  constructor(private _router: Router, private _authService: AuthService) {
   }
 
-  onSignOut(){
+  ngOnInit(): void {
+    this.username = this._authService.currentUser.UserName;
+  }
+
+  onSignOut() {
     this._router.navigate(['/signin']);
     this._authService.signOut();
   }
