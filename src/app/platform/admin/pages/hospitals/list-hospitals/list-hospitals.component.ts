@@ -60,7 +60,7 @@ export class ListHospitalsComponent implements OnInit {
 
 
   private getHospitalsFromServer() {
-    this._adminService.getAllSupportMembers().subscribe(event => {
+    this._adminService.getAllHospitals().subscribe(event => {
       if (event.type === HttpEventType.Sent) {
         this.displayProgressSpinner = true;
       }
