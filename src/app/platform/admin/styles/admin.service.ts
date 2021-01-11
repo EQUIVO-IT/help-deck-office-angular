@@ -25,7 +25,7 @@ export class AdminService {
   }
 
   getAllHospitals() {
-    return this._httpClient.get(this.endpointBase.concat("HelpDeskAccount/SupportMember/GetAll"),
+    return this._httpClient.get(this.endpointBase.concat("HelpDeskHospitals/GetAll"),
       { reportProgress: true, observe: "events" })
   }
 

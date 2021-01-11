@@ -6,6 +6,33 @@
   <mat-horizontal-stepper #stepper>
 
     <!-- Add a step to select a hospitals from a table that shows all the hospitals -->
+    <mat-step [stepControl] = "SelectHospitalForm" errormessage="Hospital selection required">  
+      <mat-form-field class="filter">
+        <mat-label>Filter</mat-label>
+        <input filterinput="100%" matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+      </mat-form-field>
+
+      <ng-template matStepLabel> Select Hospital </ng-template>
+        <mat-table [dataSource]="dataSource" matSort class="table">
+
+          <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Hospital Name </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+    
+          <ng-container matColumnDef="actions">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+              <mat-cell *matCellDef="let element"> 
+                <button mat-button color="primary"> Select </button>
+              </mat-cell>
+          </ng-container>
+    
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-step>
 
 
     <mat-step [stepControl]="ticketSenderForm" errorMessage="All Sender Details Requiored">
@@ -37,17 +64,12 @@
             </mat-error>
           </mat-form-field>
 
-        </div>
+        </div> 
+
 
 
         <div class="field-container-inline">
-          <mat-form-field class="field-inline">
-            <mat-label>Hospital Name</mat-label>
-            <input matInput formControlName="HospitalName" type="text" required>
-            <mat-error *ngIf="HospitalName.touched && HospitalName.invalid">
-              <div *ngIf="HospitalName.errors.required">Hospital Name is required.</div>
-            </mat-error>
-          </mat-form-field>
+          
 
           <!-- <mat-form-field class="field-inline">
                   <mat-label>Role</mat-label>
