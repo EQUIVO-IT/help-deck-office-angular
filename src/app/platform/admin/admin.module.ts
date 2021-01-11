@@ -10,10 +10,12 @@ import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard
 import { AssignedPasswordDialogComponent } from './pages/support-team/assigned-password-dialog/assigned-password-dialog.component';
 import { ListHospitalsComponent } from './pages/hospitals/list-hospitals/list-hospitals.component';
 import { AddHospitalComponent } from './pages/hospitals/add-hospital/add-hospital.component';
+import { UpdateHospitalComponent } from './pages/hospitals/update-hospital/update-hospital.component';
+import { DeleteHospitalComponent } from './pages/hospitals/delete-hospital/delete-hospital.component';
 
 
 @NgModule({
-  declarations: [AdminComponent, ListSupportTeamMembersComponent, AddSupportTeamMemberComponent, AdminDashboardComponent, AssignedPasswordDialogComponent, ListHospitalsComponent, AddHospitalComponent],
+  declarations: [AdminComponent, ListSupportTeamMembersComponent, AddSupportTeamMemberComponent, AdminDashboardComponent, AssignedPasswordDialogComponent, ListHospitalsComponent, AddHospitalComponent, UpdateHospitalComponent, DeleteHospitalComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

@@ -1,3 +1,4 @@
+import { UpdateHospitalComponent } from './../update-hospital/update-hospital.component';
 import { AddHospitalComponent } from './../add-hospital/add-hospital.component';
 import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -10,6 +11,7 @@ import { AuthService } from 'src/app/shared/services/equivo-api/Auth/auth.servic
 import { Hospital, SuppertMember } from '../../../data-types/admin-data-types';
 import { AdminService } from '../../../styles/admin.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { NumberKeyValue } from 'src/app/shared/data-types/shared-data-types';
 
 @Component({
   selector: 'app-list-hospitals',
@@ -55,6 +57,35 @@ export class ListHospitalsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(res => {
       this.getHospitalsFromServer();
+    })
+  }
+
+  onUpdateValue(value) {
+    let typed = value as Hospital;
+    let dialogRef = this._dialog.open(UpdateHospitalComponent, {
+      width: "80%",
+      height: "auto",
+      data: {
+        updateId: typed.id,
+        updateName: typed.name
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.getHospitalsFromServer();
+    });
+  }
+
+  onDeleteValue(value) {
+    let typed = value as Hospital;
+    this._adminService.deleteHospital(typed.id).subscribe(event => {
+      if (event.type === HttpEventType.Sent) {
+        this.displayProgressSpinner = true;
+      }
+      if (event.type === HttpEventType.Response) {
+        this.getHospitalsFromServer();
+        this.openSnackBar("Delete Hospital", "Success", 2000);
+      }
     })
   }
 

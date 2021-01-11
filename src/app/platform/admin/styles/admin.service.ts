@@ -29,5 +29,15 @@ export class AdminService {
       { reportProgress: true, observe: "events" })
   }
 
+  updateHospitals(payload,hospitalId){
+    return this._httpClient.post(this.endpointBase.concat("HelpDeskHospitals/Update/"+hospitalId),payload,
+    { reportProgress: true, observe: "events" })
+  }
+
+  deleteHospital(hospitalId){
+    return this._httpClient.delete(this.endpointBase.concat("HelpDeskHospitals/Delete/" + hospitalId),
+    { reportProgress: true, observe: "events" })
+  }
+
 
 }
