@@ -5,6 +5,9 @@
 <div class="container">
   <mat-horizontal-stepper #stepper>
 
+    <!-- Add a step to select a hospitals from a table that shows all the hospitals -->
+
+
     <mat-step [stepControl]="ticketSenderForm" errorMessage="All Sender Details Requiored">
       <form [formGroup]="ticketSenderForm" class="form">
         <ng-template matStepLabel>Fill out Sender Details</ng-template>
