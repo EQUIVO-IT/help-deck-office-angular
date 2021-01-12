@@ -1,0 +1,12 @@
+.main-wrapper {
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
+  height: 100vh;
+  background-color: $body-background-color;
+}
+
+.router-outlet-wrapper {
+  margin-top: 4em;
+  width: 100%;
+}

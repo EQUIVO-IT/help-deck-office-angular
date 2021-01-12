@@ -4,7 +4,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="light" role="heading" class="navbar-container nabvar-sticky">
+    <mat-toolbar role="heading" class="navbar-container nabvar-sticky">
       <mat-toolbar-row>
 
         <div class="navbar-section">
@@ -12,7 +12,7 @@
         </div>
 
         <div class="navbar-section">
-          <nav mat-tab-nav-bar>
+          <!-- <nav mat-tab-nav-bar>
             <a mat-tab-link class="navbar-section-controller" [routerLink]="['/tickets/open']" routerLinkActive
               #rla1="routerLinkActive" [active]="rla1.isActive">
               Tickets
@@ -27,7 +27,7 @@
               #rla2="routerLinkActive" [active]="rla2.isActive">
               Hospitals
             </a>
-          </nav>
+          </nav> -->
         </div>
 
         <div class="navbar-section">
@@ -67,8 +67,50 @@
     </mat-toolbar>
 
     <div class="main-wrapper">
+      <div class="side-menu">
 
-      <router-outlet></router-outlet>
+        <div class="menu-item">
+          <button mat-button class="menu-icon-container">
+            <mat-icon class="menu-icon-symbol">
+              dashboard
+            </mat-icon>
+            <div class="menu-icon-title">Dashboard</div>
+          </button>
+        </div>
+
+        <div class="menu-seperator"></div>
+        <div class="menu-item">
+          <button mat-button class="menu-icon-container">
+            <mat-icon class="menu-icon-symbol">
+              confirmation_number
+            </mat-icon>
+            <div class="menu-icon-title">Tickets</div>
+          </button>
+        </div>
+        <div class="menu-item">
+          <button mat-button class="menu-icon-container">
+            <mat-icon class="menu-icon-symbol">
+              groups
+            </mat-icon>
+            <div class="menu-icon-title">Support Team</div>
+          </button>
+        </div>
+
+
+        <div class="menu-seperator"></div>
+        <div class="menu-item">
+          <button mat-button class="menu-icon-container">
+            <mat-icon class="menu-icon-symbol">
+              settings
+            </mat-icon>
+            <div class="menu-icon-title">Hospitals</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="router-outlet-wrapper">
+        <router-outlet></router-outlet>
+      </div>
 
     </div>
   </mat-sidenav-content>
