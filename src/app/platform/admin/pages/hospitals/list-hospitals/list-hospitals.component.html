@@ -24,19 +24,21 @@
 
       <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Hospital Name </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="actions">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
-          <mat-cell *matCellDef="let element">
-<!--
-            <button mat-button (click)="onViewSignInDetails(element)" matTooltip="View SignIn Details">
-                <mat-icon class="icon-library">vpn_key</mat-icon>
-            </button> -->
+        <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-button (click)="onUpdateValue(element)" matTooltip="Update Details">
+                <mat-icon class="icon-library">create</mat-icon>
+            </button>
 
+            <button mat-button (click)="onDeleteValue(element)" matTooltip="Delete">
+                <mat-icon class="icon-library">delete</mat-icon>
+            </button>
         </mat-cell>
-      </ng-container>
+    </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
