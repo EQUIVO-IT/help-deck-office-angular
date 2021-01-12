@@ -1,5 +1,5 @@
 import { AssignedPasswordDialogComponent } from './../assigned-password-dialog/assigned-password-dialog.component';
-import { AdminService } from './../../../styles/admin.service';
+import { AdminService } from '../../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';

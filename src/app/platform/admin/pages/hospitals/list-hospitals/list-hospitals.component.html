@@ -1,53 +1,97 @@
-<mat-card class="mat-elevation-z8 top-card-container">
-  <mat-card-header>
-    <mat-card-title>Hospitals</mat-card-title>
-    <mat-card-subtitle>Showing a list of Hospitals</mat-card-subtitle>
-  </mat-card-header>
-</mat-card>
+<div class="conatiner">
+  <div class="controls-container">
+    <nav>
+      <h3>Hospitals</h3>
+    </nav>
 
-<mat-card class="mat-elevation-z8 middle-card-container-with-background">
-  <button mat-button (click)="onAddNew()" class="control-button">Add new Hospital</button>
-</mat-card>
+    <div class="controls-list">
+      <div class="controls-list-item">
+        <div class="controls-list-header">
+          <h4>Quick Links</h4>
+        </div>
+        <div class="controls-list-content">
+          <div class="controls-list-content-item">
+            <h5>Quick Link 1</h5>
+          </div>
+          <div class="controls-list-content-item">
+            <h5>Quick Link 2</h5>
+          </div>
+          <div class="controls-list-content-item">
+            <h5>Quick Link 3</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 
-<mat-card class="mat-elevation-z8 middle-card-container">
-  <mat-form-field>
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
-  </mat-form-field>
-</mat-card>
+  <div class="body">
+    <nav>
+      <div class="body-header">
+        <button mat-raised-button color="warn" (click)="onAddNew()" class="control-button">Add new Hospital</button>
+      </div>
+    </nav>
 
- <mat-card class="mat-elevation-z8 buttom-card-container">
+    <div class="body-content">
 
-  <mat-card-content>
-    <mat-table [dataSource]="dataSource" matSort class="table">
+      <mat-card class="mat-elevation-z8 middle-card-container">
+        <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+        </mat-form-field>
+      </mat-card>
 
-      <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Hospital Name </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-      </ng-container>
+       <mat-card class="mat-elevation-z8 buttom-card-container">
 
-      <ng-container matColumnDef="actions">
-            
-        <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-            <button mat-button (click)="onUpdateValue(element)" matTooltip="Update Details">
-                <mat-icon class="icon-library">create</mat-icon>
-            </button>
+        <mat-card-content>
+          <mat-table [dataSource]="dataSource" matSort class="table">
 
-            <button mat-button (click)="onDeleteValue(element)" matTooltip="Delete">
-                <mat-icon class="icon-library">delete</mat-icon>
-            </button>
-        </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Hospital Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+            </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+            <ng-container matColumnDef="actions">
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-  </mat-card-content>
-</mat-card>
+              <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                  <button mat-button (click)="onUpdateValue(element)" matTooltip="Update Details">
+                      <mat-icon class="icon-library">create</mat-icon>
+                  </button>
+
+                  <button mat-button (click)="onDeleteValue(element)" matTooltip="Delete">
+                      <mat-icon class="icon-library">delete</mat-icon>
+                  </button>
+              </mat-cell>
+          </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </div>
+</div>
+
 
 <app-progress-spinner class="example-margin" color="warn" mode="indeterminate" value="50"  [backdropEnabled]="true"
- [positionGloballyCenter]="true" [displayProgressSpinner]="displayProgressSpinner">
+[positionGloballyCenter]="true" [displayProgressSpinner]="displayProgressSpinner">
+
+
+
+
+
+
+
+
+
+
+
+
+
+

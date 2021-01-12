@@ -1,6 +1,6 @@
+import { AuthService } from './../../shared/services/equivo-api/Auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/services/equivo-api/Auth/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -21,4 +21,19 @@ export class AdminComponent implements OnInit {
     this._authService.signOut();
   }
 
+  onGoToAdminDashboard() {
+    this._router.navigate(['/admin/dashboard']);
+  }
+
+  onGoToTickets() {
+    this._router.navigate(['/tickets/open']);
+  }
+
+  onGoToSupportMembers() {
+    this._router.navigate(['/admin/support-members']);
+  }
+
+  onGoToHospitals() {
+    this._router.navigate(['/admin/hospitals']);
+  }
 }

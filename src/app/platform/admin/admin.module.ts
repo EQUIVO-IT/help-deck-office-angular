@@ -15,7 +15,16 @@ import { DeleteHospitalComponent } from './pages/hospitals/delete-hospital/delet
 
 
 @NgModule({
-  declarations: [AdminComponent, ListSupportTeamMembersComponent, AddSupportTeamMemberComponent, AdminDashboardComponent, AssignedPasswordDialogComponent, ListHospitalsComponent, AddHospitalComponent, UpdateHospitalComponent, DeleteHospitalComponent],
+  declarations: [
+    AdminComponent,
+    ListSupportTeamMembersComponent,
+    AddSupportTeamMemberComponent,
+    AdminDashboardComponent,
+    AssignedPasswordDialogComponent,
+    ListHospitalsComponent,
+    AddHospitalComponent,
+    UpdateHospitalComponent,
+    DeleteHospitalComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

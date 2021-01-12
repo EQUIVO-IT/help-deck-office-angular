@@ -1,3 +1,4 @@
+import { ListOpenTicketsComponent } from '../agent/pages/tickets/list-open-tickets/list-open-tickets.component';
 import { AddHospitalComponent } from './pages/hospitals/add-hospital/add-hospital.component';
 import { ListHospitalsComponent } from './pages/hospitals/list-hospitals/list-hospitals.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
@@ -17,6 +18,7 @@ children:[
   {path:"add-support-member",component:AddSupportTeamMemberComponent},
   {path:"hospitals", component:ListHospitalsComponent},
   {path:"add-hospital",component:AddHospitalComponent},
+  {path:"open",component:ListOpenTicketsComponent},
 ] }];
 
 @NgModule({
