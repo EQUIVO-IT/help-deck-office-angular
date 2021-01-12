@@ -51,7 +51,7 @@ export class ListHospitalsComponent implements OnInit {
 
   onAddNew() {
     let dialogRef = this._dialog.open(AddHospitalComponent, {
-      width: "900px",
+      width: "50%",
       height: "auto"
     });
 
@@ -63,7 +63,7 @@ export class ListHospitalsComponent implements OnInit {
   onUpdateValue(value) {
     let typed = value as Hospital;
     let dialogRef = this._dialog.open(UpdateHospitalComponent, {
-      width: "80%",
+      width: "50%",
       height: "auto",
       data: {
         updateId: typed.id,
