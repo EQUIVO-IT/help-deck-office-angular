@@ -1,3 +1,4 @@
+import { UpdateHospitalComponent } from './../update-hospital/update-hospital.component';
 import { AddHospitalComponent } from './../add-hospital/add-hospital.component';
 import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -10,6 +11,7 @@ import { AuthService } from 'src/app/shared/services/equivo-api/Auth/auth.servic
 import { Hospital, SuppertMember } from '../../../data-types/admin-data-types';
 import { AdminService } from '../../../styles/admin.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { NumberKeyValue } from 'src/app/shared/data-types/shared-data-types';
 
 @Component({
   selector: 'app-list-hospitals',
@@ -49,7 +51,7 @@ export class ListHospitalsComponent implements OnInit {
 
   onAddNew() {
     let dialogRef = this._dialog.open(AddHospitalComponent, {
-      width: "900px",
+      width: "50%",
       height: "auto"
     });
 
@@ -58,9 +60,38 @@ export class ListHospitalsComponent implements OnInit {
     })
   }
 
+  onUpdateValue(value) {
+    let typed = value as Hospital;
+    let dialogRef = this._dialog.open(UpdateHospitalComponent, {
+      width: "50%",
+      height: "auto",
+      data: {
+        updateId: typed.id,
+        updateName: typed.name
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.getHospitalsFromServer();
+    });
+  }
+
+  onDeleteValue(value) {
+    let typed = value as Hospital;
+    this._adminService.deleteHospital(typed.id).subscribe(event => {
+      if (event.type === HttpEventType.Sent) {
+        this.displayProgressSpinner = true;
+      }
+      if (event.type === HttpEventType.Response) {
+        this.getHospitalsFromServer();
+        this.openSnackBar("Delete Hospital", "Success", 2000);
+      }
+    })
+  }
+
 
   private getHospitalsFromServer() {
-    this._adminService.getAllSupportMembers().subscribe(event => {
+    this._adminService.getAllHospitals().subscribe(event => {
       if (event.type === HttpEventType.Sent) {
         this.displayProgressSpinner = true;
       }
