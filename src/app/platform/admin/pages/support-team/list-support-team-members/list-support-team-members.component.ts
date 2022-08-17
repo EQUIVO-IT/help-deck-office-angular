@@ -1,12 +1,11 @@
 import { AddSupportTeamMemberComponent } from './../add-support-team-member/add-support-team-member.component';
-import { AdminService } from './../../../styles/admin.service';
+import { AdminService } from '../../../services/admin.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
-import { Ticket } from 'src/app/platform/tickets/data-types/tickets-data-types';
 import { AuthService } from 'src/app/shared/services/equivo-api/Auth/auth.service';
 import { SuppertMember } from '../../../data-types/admin-data-types';
 import { HttpEventType } from '@angular/common/http';

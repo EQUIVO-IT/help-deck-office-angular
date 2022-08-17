@@ -1,4 +1,4 @@
-import { AdminService } from './../../../admin/styles/admin.service';
+import { AdminService } from '../../../../admin/services/admin.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -39,8 +39,8 @@ export class OpenNewTicketComponent implements OnInit {
     private _authService:AuthService,
     public dialogRef: MatDialogRef<OpenNewTicketComponent>,
     private _adminService: AdminService
-  ) 
-  
+  )
+
   {
 
     this.ticketSenderForm = _formBuilder.group({
@@ -49,7 +49,7 @@ export class OpenNewTicketComponent implements OnInit {
       JobTitle: ["", Validators.required],
       WorkTelephoneNumber: ["", Validators.required],
       EmailAddress: ["", [Validators.required, Validators.email]],
-      
+
     });
 
     this.ticketDetailsForm = _formBuilder.group({
@@ -98,7 +98,7 @@ export class OpenNewTicketComponent implements OnInit {
   ngOnInit(): void {
     this.getHospitalsFromServer();
   }
-  
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -133,7 +133,7 @@ export class OpenNewTicketComponent implements OnInit {
   }
 
 
-  
+
   private getHospitalsFromServer() {
     this._adminService.getAllHospitals().subscribe(event => {
       if (event.type === HttpEventType.Sent) {

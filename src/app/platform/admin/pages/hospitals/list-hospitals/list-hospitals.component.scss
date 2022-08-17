@@ -1,10 +1,6 @@
 @import "/src/globals/styles/colors.scss";
+@import "/src/globals/styles/content/content-layout.scss";
 @import "/src/globals/styles/list-tables.scss";
-
-:host {
-  box-sizing: border-box;
-  height: 100vh;
-}
 
 
 

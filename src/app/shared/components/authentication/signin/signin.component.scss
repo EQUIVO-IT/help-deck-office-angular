@@ -1,15 +1,14 @@
+@import "/src/globals/styles/colors.scss";
+
 :host {
   display: flex;
   flex-direction: column;
   align-content: center;
-  background-color: #ffffff;
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
-  font-weight: 400;
-  line-height: 1.25rem;
-  margin: 0;
+  background-color: $controlers-primary-forebackground-color;
+  height: 100vh;
 }
 
-.loader-container{
+.loader-container {
   width: 448px;
   margin-top: 100px;
   margin-left: auto;
@@ -24,7 +23,6 @@
 }
 
 .card-container {
-  border: 0.0625rem solid whitesmoke;
   border-radius: 0.5rem;
   width: 448px;
   margin-top: 0;
@@ -32,17 +30,18 @@
   margin-right: auto;
 }
 
-mat-card-title{
+mat-card-title {
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
+  color: #ffffff;
 }
 
-mat-card-subtitle{
+mat-card-subtitle {
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
-  color:red;
+  color: red;
   font-weight: 500;
 }
 
@@ -67,14 +66,6 @@ mat-card-subtitle{
   flex: 1;
 }
 
-.forgot-password-text {
-  color:#1a73e8;
-  font-weight: 550;
-  margin-top: 0px;
-  flex: 1;
-  cursor: pointer;
-}
-
 .form-field > mat-label {
   width: 336px;
   height: 22px;
@@ -82,6 +73,14 @@ mat-card-subtitle{
   margin: 2px 2px 0 2px;
   min-width: 0px;
   min-height: auto;
+}
+
+.forgot-password-text {
+  color: $palette-1181-color-6;
+  font-weight: 550;
+  margin-top: 0px;
+  flex: 1;
+  cursor: pointer;
 }
 
 .bottom-controls-container {
@@ -92,18 +91,8 @@ mat-card-subtitle{
 }
 
 .signIn-button {
-  background: #1a73e8;
   color: #ffffff;
   width: 100px;
   height: 36px;
   margin-left: auto;
 }
-
-.signUp-button {
-  color: #1a73e8;
-  background: #ffffff;
-  height: 36px;
-  margin-left: 0;
-}
-
-

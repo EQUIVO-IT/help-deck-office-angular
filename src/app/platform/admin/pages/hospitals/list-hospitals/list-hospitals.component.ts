@@ -9,7 +9,7 @@ import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/equivo-api/Auth/auth.service';
 import { Hospital, SuppertMember } from '../../../data-types/admin-data-types';
-import { AdminService } from '../../../styles/admin.service';
+import { AdminService } from '../../../services/admin.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { NumberKeyValue } from 'src/app/shared/data-types/shared-data-types';
 

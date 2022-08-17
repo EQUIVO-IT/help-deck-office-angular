@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/shared/services/equivo-api/Auth/auth.service';
-import { AdminService } from '../../../styles/admin.service';
+import { AdminService } from '../../../services/admin.service';
 import { AssignedPasswordDialogComponent } from '../../support-team/assigned-password-dialog/assigned-password-dialog.component';
 
 @Component({

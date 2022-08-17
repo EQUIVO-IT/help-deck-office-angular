@@ -55,7 +55,7 @@ export class SigninComponent implements OnInit {
               this._router.navigate([returnUrl || '/admin/dashboard']);
             }
             if (this._authService.currentUser.UserRole == "supportmember".toLowerCase()) {
-              this._router.navigate([returnUrl || '/tickets/dashboard']);
+              this._router.navigate([returnUrl || '/agent/dashboard']);
             }
           }
         },

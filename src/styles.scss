@@ -1,7 +1,11 @@
 body {
-  margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   overflow-y: hidden; /* Hide vertical scrollbar */
   overflow-x: hidden; /* Hide horizontal scrollbar */
+  margin: 0;
+  padding: 0;
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

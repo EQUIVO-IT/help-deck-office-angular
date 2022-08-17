@@ -1,16 +1,7 @@
-@import "/src/globals/styles/colors.scss";
-
-
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: $body-background-color;
-  overflow-y: hidden;
-  overflow-x: hidden;
-}
 
 .navbar-container {
   display: flex;
+  justify-content: space-between;
   width: 100vw;
   background-color: $controlers-primary-forebackground-color;
 }
@@ -26,13 +17,13 @@ body {
   text-decoration: none;
 }
 
-.navbar-section {
-  flex: 1;
-}
+// .navbar-section {
+//   flex: 1;
+// }
 
-.navbar-section-divider {
-  flex: 1 1 1;
-}
+// .navbar-section-divider {
+//   flex: 1 1 1;
+// }
 
 .navbar-section-controller {
   height: 64px;
@@ -59,32 +50,4 @@ body {
 
 .navbar-username-text {
   color: #ffffff;
-}
-
-.main-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin-top: 6em;
-  background-color: $body-background-color;
-}
-
-mat-progress-bar {
-  height: 4.5px;
-}
-
-//SideNav
-mat-sidenav {
-  width: 40%;
-}
-
-mat-drawer {
-  background-color: rgb(210, 212, 216);
-  width: 290px;
-}
-
-mat-sidenav {
-  background-color: rgb(210, 212, 216);
-  width: 290px;
 }

@@ -1,4 +1,4 @@
-import { OpenNewTicketComponent } from './../open-new-ticket/open-new-ticket.component';
+import { OpenNewTicketComponent } from '../open-new-ticket/open-new-ticket.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { HttpEventType } from '@angular/common/http';
-import { Ticket } from '../../data-types/tickets-data-types';
+import { Ticket } from '../../../data-types/tickets-data-types';
 import { AuthService } from 'src/app/shared/services/equivo-api/Auth/auth.service';
 
 @Component({
