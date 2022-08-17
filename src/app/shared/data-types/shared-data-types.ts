@@ -8,13 +8,12 @@ export interface UploadFinishedEventArgs {
   filePath: '' //Comes from server
 }
 
-export interface KeyValueDropDown {
-  value: string;
-  viewValue: string;
+export interface NumberKeyValue{
+  key:number;
+  value:string
 }
 
-export interface IntKeyValueDropDown {
-  id: number;
-  routeId: string;
-  value: string;
+export interface StringKeyValue{
+  key:number;
+  value:string
 }
